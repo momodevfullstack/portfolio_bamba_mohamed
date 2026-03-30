@@ -1,4 +1,4 @@
-import type { ProjectAssetFolder } from '@/data/generated/assetMediaMap';
+import type { ProjectAssetFolder } from '@/data/projectAssetFolders';
 
 /**
  * Videos trop lourdes pour Git / clone Vercel : heberge-les (R2, Bunny, S3, Drive lien direct, etc.)

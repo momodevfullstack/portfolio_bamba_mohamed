@@ -1,6 +1,9 @@
 import type { ProjectMedia } from '@/data/projects';
-import { assetMediaMap, type ProjectAssetFolder } from '@/data/generated/assetMediaMap';
+import type { ProjectAssetFolder } from '@/data/projectAssetFolders';
+import { assetMediaMap } from '@/data/generated/assetMediaMap';
 import { remoteVideoUrlForFolder } from '@/lib/remoteProjectVideos';
+
+type AssetFolderEntry = { video: string | null; images: readonly string[] };
 
 /**
  * Construit le tableau `media` à partir d'un dossier assets/video/<folder>/
@@ -14,7 +17,8 @@ export function mediaFromAssetFolder(
     imageAlts?: string[];
   } = {}
 ): ProjectMedia[] {
-  const entry = assetMediaMap[folder];
+  const map = assetMediaMap as Readonly<Record<string, AssetFolderEntry>>;
+  const entry = map[folder];
   if (!entry) return [];
 
   const out: ProjectMedia[] = [];
