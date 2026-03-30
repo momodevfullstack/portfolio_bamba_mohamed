@@ -7,7 +7,7 @@
     "predev": "npm run sync:assets",
     "prebuild": "npm run sync:assets",
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
