@@ -45,3 +45,7 @@ next-env.d.ts
 /public/esct/
 /public/site_mariage_1/
 /public/vodason_compagn/
+
+# Videos lourdes : ne pas versionner une fois les URLs NEXT_PUBLIC_VIDEO_* configurees sur Vercel.
+# Garde les .mp4 en local pour le dev ; npm run sync:assets les copie vers public/.
+/assets/video/**/*.mp4

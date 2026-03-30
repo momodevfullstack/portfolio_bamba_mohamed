@@ -1,9 +1,11 @@
 import type { ProjectMedia } from '@/data/projects';
 import { assetMediaMap, type ProjectAssetFolder } from '@/data/generated/assetMediaMap';
+import { remoteVideoUrlForFolder } from '@/lib/remoteProjectVideos';
 
 /**
  * Construit le tableau `media` à partir d'un dossier assets/video/<folder>/
  * (vidéo en premier si présente, puis images triées par nom).
+ * URL video distante (NEXT_PUBLIC_VIDEO_*) prioritaire sur le fichier local /public.
  */
 export function mediaFromAssetFolder(
   folder: ProjectAssetFolder,
@@ -16,10 +18,11 @@ export function mediaFromAssetFolder(
   if (!entry) return [];
 
   const out: ProjectMedia[] = [];
-  if (entry.video) {
+  const videoSrc = remoteVideoUrlForFolder(folder) ?? entry.video;
+  if (videoSrc) {
     out.push({
       type: 'video',
-      src: entry.video,
+      src: videoSrc,
       alt: alts.video ?? `Video — ${folder}`,
     });
   }

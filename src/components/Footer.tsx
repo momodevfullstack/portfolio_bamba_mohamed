@@ -29,6 +29,14 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li className="pt-1">
+                <Link
+                  href="/login"
+                  className="inline-flex rounded-md border border-teal-600 bg-teal-50 px-3 py-2 text-sm font-semibold text-teal-800 transition hover:bg-teal-100 hover:border-teal-700"
+                >
+                  Connexion
+                </Link>
+              </li>
             </ul>
           </div>
           <div>

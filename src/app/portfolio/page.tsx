@@ -2,11 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { getOrderedProjects, projects } from '@/data/projects';
 import { getProjectThumb, projectKindLabel, projectUsesMobileMediaLayout } from '@/lib/projectCard';
+import { getPublicProjects } from '@/lib/projects/service';
 
-export default function Portfolio() {
-  const ordered = getOrderedProjects();
+export default async function Portfolio() {
+  const ordered = await getPublicProjects();
+  const projectCount = ordered.length;
 
   return (
     <div className="min-h-screen bg-white text-zinc-900">
@@ -81,7 +82,7 @@ export default function Portfolio() {
               className="animate-reveal-up mx-auto mt-2 max-w-2xl text-center text-sm text-zinc-500"
               style={{ animationDelay: '60ms' }}
             >
-              {projects.length} projet{projects.length !== 1 ? 's' : ''} — cliquez pour le detail
+              {projectCount} projet{projectCount !== 1 ? 's' : ''} — cliquez pour le detail
             </p>
 
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

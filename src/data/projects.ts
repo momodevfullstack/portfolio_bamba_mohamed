@@ -24,7 +24,8 @@ export type Project = {
   inProgress?: boolean;
 };
 
-export const projects: Project[] = [
+/** Fallback si Supabase n'est pas configure ou sans donnees. */
+export const staticProjectsFallback: Project[] = [
   {
     id: 'mobile-expo-app',
     spotlight: true,
@@ -145,13 +146,13 @@ export const projects: Project[] = [
   },
 ];
 
-export function getProjectById(id: string) {
-  return projects.find((project) => project.id === id);
+export function getStaticProjectBySlug(slug: string) {
+  return staticProjectsFallback.find((project) => project.id === slug);
 }
 
-/** Spotlight en premier, puis ordre du tableau. */
-export function getOrderedProjects(): Project[] {
-  const spot = projects.filter((p) => p.spotlight);
-  const rest = projects.filter((p) => !p.spotlight);
+/** Spotlight en premier (fallback statique). */
+export function getStaticOrderedProjects(): Project[] {
+  const spot = staticProjectsFallback.filter((p) => p.spotlight);
+  const rest = staticProjectsFallback.filter((p) => !p.spotlight);
   return [...spot, ...rest];
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { getProjectById, projects } from '@/data/projects';
+import { getPublicProjectBySlug, getPublicProjectSlugs } from '@/lib/projects/service';
 import {
   getMediaDisplaySrc,
   getProjectHeroVideo,
@@ -16,13 +16,13 @@ type Params = {
   id: string;
 };
 
-export function generateStaticParams() {
-  return projects.map((project) => ({ id: project.id }));
+export async function generateStaticParams() {
+  return getPublicProjectSlugs();
 }
 
 export default async function ProjectDetail({ params }: { params: Promise<Params> }) {
   const { id } = await params;
-  const project = getProjectById(id);
+  const project = await getPublicProjectBySlug(id);
 
   if (!project) {
     notFound();
