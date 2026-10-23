@@ -5,10 +5,10 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getProjectThumb, projectKindLabel, projectUsesMobileMediaLayout } from '@/lib/projectCard';
-import { getPublicProjects } from '@/lib/projects/service';
+import { getStaticOrderedProjects } from '@/data/projects';
 
-export default async function Home() {
-  const featuredProjects = (await getPublicProjects()).slice(0, 3);
+export default function Home() {
+  const featuredProjects = getStaticOrderedProjects().slice(0, 3);
   const valueCards = [
     {
       title: 'Execution produit rapide',

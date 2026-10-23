@@ -3,17 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "sync:assets": "node scripts/sync-video-assets.mjs && node scripts/generate-asset-media.mjs",
-    "predev": "npm run sync:assets",
-    "prebuild": "npm run sync:assets",
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.9.0",
-    "@supabase/supabase-js": "^2.100.1",
     "lucide-react": "^1.7.0",
     "next": "15.5.14",
     "react": "19.1.0",

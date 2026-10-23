@@ -24,7 +24,7 @@ export type Project = {
   inProgress?: boolean;
 };
 
-/** Fallback si Supabase n'est pas configure ou sans donnees. */
+/** Projets publiés avec le site statique. */
 export const staticProjectsFallback: Project[] = [
   {
     id: 'mobile-expo-app',
@@ -116,15 +116,7 @@ export const staticProjectsFallback: Project[] = [
     role: 'Conception UI, composants et flux (liste, fiche candidat, vues pipeline), integration API et etats de chargement.',
     outcome:
       "Pipeline lisible pour toute l'equipe, moins de copies manuelles entre outils, et base pour des exports ou tableaux de bord plus pousses.",
-    media: [
-      {
-        type: 'video',
-        src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
-        alt: 'Parcours du dashboard de recrutement',
-      },
-      { type: 'image', src: '/photo_profile.png', alt: "Vue d'ensemble du tableau de bord recrutement" },
-      { type: 'image', src: '/photo_profile.png', alt: 'Detail du pipeline et des etapes candidat' },
-    ],
+    media: [{ type: 'image', src: '/photo_profile.png', alt: "Vue d'ensemble du tableau de bord recrutement" }],
   },
   {
     id: 'ai-support-assistant',
@@ -135,14 +127,7 @@ export const staticProjectsFallback: Project[] = [
     stack: ['Next.js', 'Python', 'OpenAI API', 'Redis'],
     role: 'AI engineer',
     outcome: 'Acceleration du traitement et meilleure qualite des reponses.',
-    media: [
-      {
-        type: 'video',
-        src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
-        alt: "Conversation avec l'assistant support",
-      },
-      { type: 'image', src: '/photo_profile.png', alt: 'Interface assistant IA' },
-    ],
+    media: [{ type: 'image', src: '/photo_profile.png', alt: 'Interface assistant IA' }],
   },
 ];
 

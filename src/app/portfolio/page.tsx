@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { getProjectThumb, projectKindLabel, projectUsesMobileMediaLayout } from '@/lib/projectCard';
-import { getPublicProjects } from '@/lib/projects/service';
+import { getStaticOrderedProjects } from '@/data/projects';
 
-export default async function Portfolio() {
-  const ordered = await getPublicProjects();
+export default function Portfolio() {
+  const ordered = getStaticOrderedProjects();
   const projectCount = ordered.length;
 
   return (

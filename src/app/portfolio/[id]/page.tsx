@@ -3,26 +3,29 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { getPublicProjectBySlug, getPublicProjectSlugs } from '@/lib/projects/service';
+import { getStaticOrderedProjects, getStaticProjectBySlug } from '@/data/projects';
 import {
   getMediaDisplaySrc,
   getProjectHeroVideo,
   getProjectThumb,
   projectKindLabel,
   projectUsesMobileMediaLayout,
+  withBasePath,
 } from '@/lib/projectCard';
 
 type Params = {
   id: string;
 };
 
-export async function generateStaticParams() {
-  return getPublicProjectSlugs();
+export function generateStaticParams() {
+  return getStaticOrderedProjects().map((project) => ({ id: project.id }));
 }
+
+export const dynamicParams = false;
 
 export default async function ProjectDetail({ params }: { params: Promise<Params> }) {
   const { id } = await params;
-  const project = await getPublicProjectBySlug(id);
+  const project = getStaticProjectBySlug(id);
 
   if (!project) {
     notFound();
@@ -160,7 +163,7 @@ export default async function ProjectDetail({ params }: { params: Promise<Params
                         poster={heroVideo.media.poster}
                         aria-label={heroVideo.media.alt}
                       >
-                        <source src={heroVideo.media.src} type="video/mp4" />
+                        <source src={withBasePath(heroVideo.media.src)} type="video/mp4" />
                       </video>
                     ) : (
                       <Image
@@ -183,7 +186,7 @@ export default async function ProjectDetail({ params }: { params: Promise<Params
                     poster={heroVideo.media.poster}
                     aria-label={heroVideo.media.alt}
                   >
-                    <source src={heroVideo.media.src} type="video/mp4" />
+                    <source src={withBasePath(heroVideo.media.src)} type="video/mp4" />
                   </video>
                 ) : (
                   <Image
@@ -251,7 +254,7 @@ export default async function ProjectDetail({ params }: { params: Promise<Params
                           }
                         >
                           <Image
-                            src={getMediaDisplaySrc(project, media, index)}
+                            src={getMediaDisplaySrc(media)}
                             alt={media.alt}
                             fill
                             className={mobileLayout ? 'object-contain' : 'object-cover'}
@@ -296,7 +299,7 @@ export default async function ProjectDetail({ params }: { params: Promise<Params
                           }
                           aria-label={media.alt}
                         >
-                          <source src={media.src} type="video/mp4" />
+                          <source src={withBasePath(media.src)} type="video/mp4" />
                         </video>
                       </div>
                     </div>
