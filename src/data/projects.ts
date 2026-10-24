@@ -155,31 +155,6 @@ export const staticProjectsFallback: Project[] = [
       ],
     }),
   },
-  {
-    id: 'recruitment-dashboard',
-    title: 'Recruitment Dashboard',
-    summary: 'Plateforme web de suivi candidats et pipeline RH.',
-    description:
-      "Application web pour centraliser les candidatures, les etapes du processus (sourcing, entretiens, offre) et les indicateurs cles pour l'equipe RH. " +
-      "Les recruteurs filtrent et trient les profils en temps reel, mettent a jour le statut d'un candidat et visualisent le funnel sans tableurs. " +
-      "L'interface est construite avec Next.js et Tailwind ; Supabase assure l'auth, les donnees et les politiques d'acces.",
-    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase'],
-    role: 'Conception UI, composants et flux (liste, fiche candidat, vues pipeline), integration API et etats de chargement.',
-    outcome:
-      "Pipeline lisible pour toute l'equipe, moins de copies manuelles entre outils, et base pour des exports ou tableaux de bord plus pousses.",
-    media: [{ type: 'image', src: '/photo_profile.png', alt: "Vue d'ensemble du tableau de bord recrutement" }],
-  },
-  {
-    id: 'ai-support-assistant',
-    title: 'AI Support Assistant',
-    summary: 'Assistant IA pour qualification des demandes clients.',
-    description:
-      "Integration d'un assistant conversationnel pour orienter les demandes et preparer des reponses pertinentes.",
-    stack: ['Next.js', 'Python', 'OpenAI API', 'Redis'],
-    role: 'AI engineer',
-    outcome: 'Acceleration du traitement et meilleure qualite des reponses.',
-    media: [{ type: 'image', src: '/photo_profile.png', alt: 'Interface assistant IA' }],
-  },
 ];
 
 export function getStaticProjectBySlug(slug: string) {
