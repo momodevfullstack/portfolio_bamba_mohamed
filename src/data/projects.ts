@@ -22,6 +22,8 @@ export type Project = {
   spotlight?: boolean;
   /** Badge « en cours » + message discret sur la fiche. */
   inProgress?: boolean;
+  /** Affiche les videos dans la galerie au lieu du hero. */
+  videosInGallery?: boolean;
 };
 
 /** Projets publiés avec le site statique. */
@@ -71,11 +73,22 @@ export const staticProjectsFallback: Project[] = [
     outcome:
       'La reprise est considérée comme réussie uniquement lorsque les services sont sains et qu’une nouvelle transaction fictive aboutit — pas simplement lorsque le conteneur redémarre.',
     github: 'https://github.com/JCHNT/Workshop-M2',
+    videosInGallery: true,
     media: [
       {
         type: 'image',
         src: '/resilience-alpha.svg',
         alt: 'Illustration de la plateforme Resilience-Alpha',
+      },
+      {
+        type: 'video',
+        src: '/resilience-alpha/video_1.mp4',
+        alt: 'Démonstration vidéo 1 de Resilience-Alpha',
+      },
+      {
+        type: 'video',
+        src: '/resilience-alpha/video_2.mp4',
+        alt: 'Démonstration vidéo 2 de Resilience-Alpha',
       },
     ],
   },

@@ -31,7 +31,7 @@ export default async function ProjectDetail({ params }: { params: Promise<Params
     notFound();
   }
 
-  const heroVideo = getProjectHeroVideo(project);
+  const heroVideo = project.videosInGallery ? null : getProjectHeroVideo(project);
   const hero = getProjectThumb(project);
   const kind = projectKindLabel(project);
   const galleryMedia = project.media.filter((_, i) => i !== heroVideo?.index);
