@@ -42,6 +42,44 @@ export const staticProjectsFallback: Project[] = [
     }),
   },
   {
+    id: 'resilience-alpha',
+    title: 'Resilience-Alpha — plateforme de paiement résiliente',
+    summary:
+      'Plateforme fictive de laboratoire qui détecte les incidents, rétablit automatiquement le service et vérifie une transaction de bout en bout.',
+    description:
+      'Projet d’équipe réalisé dans le cadre du Workshop M2 à l’EPSI. La plateforme simule un service de paiement dans un environnement Docker isolé et démontre une reprise autonome après incident. ' +
+      'Un détecteur fondé sur IsolationForest analyse les métriques opérationnelles ; un moteur de remédiation applique des actions autorisées, puis vérifie la santé des services et la réussite d’une nouvelle transaction fictive. ' +
+      'Le projet complète cette chaîne par un WAF, une supervision centralisée, un dashboard temps réel, un déploiement durci et un assistant RAG local basé sur les runbooks.',
+    stack: [
+      'Python',
+      'FastAPI',
+      'Docker Compose',
+      'PostgreSQL',
+      'IsolationForest',
+      'Prometheus',
+      'Grafana',
+      'Loki',
+      'OWASP CRS',
+      'Ansible',
+      'SOPS',
+      'Ollama',
+      'LangChain',
+      'ChromaDB',
+    ],
+    role:
+      'Projet d’équipe : intégration d’une chaîne de détection d’anomalies, de remédiation contrôlée et de vérification métier.',
+    outcome:
+      'La reprise est considérée comme réussie uniquement lorsque les services sont sains et qu’une nouvelle transaction fictive aboutit — pas simplement lorsque le conteneur redémarre.',
+    github: 'https://github.com/JCHNT/Workshop-M2',
+    media: [
+      {
+        type: 'image',
+        src: '/resilience-alpha.svg',
+        alt: 'Illustration de la plateforme Resilience-Alpha',
+      },
+    ],
+  },
+  {
     id: 'site-mariage-1',
     title: 'Site mariage — presentation & RSVP',
     summary: 'Site vitrine pour un mariage : informations, programme et reponse en ligne.',

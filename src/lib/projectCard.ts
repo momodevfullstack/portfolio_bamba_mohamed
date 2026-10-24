@@ -21,6 +21,9 @@ export function getProjectThumb(project: Project): { src: string; alt: string } 
 }
 
 export function projectKindLabel(project: Project): string {
+  if (project.stack.some((s) => /docker|isolationforest|prometheus|grafana|owasp|ansible/i.test(s))) {
+    return 'DevSecOps';
+  }
   if (
     project.stack.some((s) =>
       /flutter|react native|expo/i.test(s)

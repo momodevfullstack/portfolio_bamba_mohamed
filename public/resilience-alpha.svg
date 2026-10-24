@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="background" x1="98" y1="31" x2="1103" y2="646" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#082F49"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="606" y1="200" x2="606" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#99F6E4"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <filter id="glow" x="450" y="168" width="312" height="344" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1200v675H0z"/>
+  <circle cx="164" cy="131" r="174" fill="#22D3EE" fill-opacity=".08"/>
+  <circle cx="1080" cy="580" r="242" fill="#5EEAD4" fill-opacity=".09"/>
+  <path d="M138 472h257m410 0h257M300 206v102m600-102v102M300 472v-83m600 83v-83" stroke="#99F6E4" stroke-opacity=".5" stroke-width="3"/>
+  <circle cx="138" cy="472" r="13" fill="#99F6E4"/>
+  <circle cx="1062" cy="472" r="13" fill="#99F6E4"/>
+  <circle cx="300" cy="206" r="10" fill="#99F6E4"/>
+  <circle cx="900" cy="206" r="10" fill="#99F6E4"/>
+  <circle cx="300" cy="389" r="10" fill="#99F6E4"/>
+  <circle cx="900" cy="389" r="10" fill="#99F6E4"/>
+  <path d="M606 192l119 47v89c0 78-50 143-119 170-69-27-119-92-119-170v-89l119-47Z" fill="#2DD4BF" fill-opacity=".42" filter="url(#glow)"/>
+  <path d="M606 208l101 40v80c0 66-41 122-101 148-60-26-101-82-101-148v-80l101-40Z" fill="url(#shield)" fill-opacity=".16" stroke="url(#shield)" stroke-width="5"/>
+  <path d="m553 334 37 37 72-79" stroke="#CCFBF1" stroke-linecap="round" stroke-linejoin="round" stroke-width="13"/>
+  <text x="600" y="552" fill="#F0FDFA" font-family="Arial, sans-serif" font-size="31" font-weight="700" letter-spacing="6" text-anchor="middle">RESILIENCE-ALPHA</text>
+  <text x="600" y="590" fill="#99F6E4" font-family="Arial, sans-serif" font-size="16" letter-spacing="4" text-anchor="middle">AUTONOMOUS RECOVERY LAB</text>
+</svg>

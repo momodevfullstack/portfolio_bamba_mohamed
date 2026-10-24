@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
+  experimental: {
+    cpus: 1,
+    staticGenerationMaxConcurrency: 1,
+  },
   images: {
     unoptimized: true,
   },
